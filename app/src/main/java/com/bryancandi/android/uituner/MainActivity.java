@@ -1,11 +1,10 @@
 package com.bryancandi.android.uituner;
 
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,12 +19,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } catch (Exception e) {
-            Uri packageUri = Uri.parse("package:com.bryancandi.android.uituner");
-            Intent UninstallIntent = new Intent(Intent.ACTION_DELETE, packageUri);
-            startActivity(UninstallIntent);
-            Toast.makeText(getApplicationContext(), getString(R.string.not_found),
-                    Toast.LENGTH_LONG).show();
-            finish();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.not_found_dialog)
+                    .setPositiveButton(R.string.uninstall, (dialog, id) -> {
+                        Uri packageUri = Uri.parse("package:com.bryancandi.android.uituner");
+                        Intent UninstallIntent = new Intent(Intent.ACTION_DELETE, packageUri);
+                        startActivity(UninstallIntent);
+                        finish();
+                    })
+                    .setNegativeButton(R.string.cancel, (dialog, id) -> finish());
+            builder.create().show();
         }
     }
 }

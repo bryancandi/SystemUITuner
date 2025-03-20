@@ -8,10 +8,10 @@ buildscript {
             name 'Google'
         }
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.5.1'
+        classpath 'com.android.tools.build:gradle:8.9.0'
     }
 }
 
@@ -26,7 +26,7 @@ allprojects {
     allprojects {
         repositories {
             google()
-            jcenter()
+            mavenCentral()
         }
     }
 }

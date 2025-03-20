@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">System UI Tuner</string>
     <string name="action_settings">Settings</string>
-    <string name="not_found">Not supported by your Android version.</string>
+    <string name="not_found_dialog">The System UI Tuner is not available on this device. Would you like to uninstall this application?</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="cancel">Cancel</string>
 </resources>
